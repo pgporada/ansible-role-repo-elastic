@@ -1,0 +1,21 @@
+---
+- name: Import Elastic GPG key
+  become: true
+  become_method: sudo
+  rpm_key:
+    key: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+    state: present
+
+- name: Add Elastic repository
+  become: true
+  become_method: sudo
+  yum_repository:
+    name: elastic
+    description: Elastic repository for {{ elastic_major_minor_version }}.x packages
+    baseurl: https://artifacts.elastic.co/packages/{{ elastic_major_minor_version }}/yum
+    gpgcheck: yes
+    gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    enabled: yes
+    owner: root
+    group: root
+    mode: 0644

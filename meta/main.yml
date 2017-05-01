@@ -1,0 +1,15 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: Phil Porada - philporada@gmail.com
+  description: Installs the Elastic repository
+  company: MI Tall Guy
+  min_ansible_version: 2.2
+  license: GPLv3
+  platforms:
+  - name: EL
+    versions:
+    - 6
+    - 7
+...
